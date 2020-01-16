@@ -1,7 +1,10 @@
 #!/bin/bash
 
-GITHUB_API_URL_TEMPLATE="https://api.github.com/repos/microsoft/appcenter-sdk-dotnet/%s?access_token=%s%s"
-REQUEST_URL_PULL="$(printf $GITHUB_API_URL_TEMPLATE 'pulls' $GithubToken)"
+if [ -z "${GITHUB_REPO_OWNER}" ]; then
+    GITHUB_REPO_OWNER="microsoft"
+fi
+GITHUB_REPO_NAME="appcenter-sdk-dotnet"
+REQUEST_URL_PULL="https://api.github.com/repos/$GITHUB_REPO_OWNER/$GITHUB_REPO_NAME/pulls?access_token=$GITHUB_TOKEN"
 
 resp="$(curl -s -X POST $REQUEST_URL_PULL -d '{
       "title": "Start new '${SDK_NEW_VERSION}' version",
