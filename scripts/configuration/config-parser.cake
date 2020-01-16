@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public static class ConfigFile
 {
-    public const string Path = $"scripts/configuration/{Name}";
+    public const string Path = $"scripts/configuration/ac-build-config.xml";
     public const string Name = "ac-build-config.xml";
 
     public static XmlReader CreateReader()
