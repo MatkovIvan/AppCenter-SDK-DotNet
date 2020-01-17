@@ -166,8 +166,21 @@ Task("StartNewVersion").Does(()=>
 
 // Fills android and ios versions in the build config file with the relevant ones.
 Task("UpdateNativeVersionsToLatest")
+.IsDependentOn("UpdateSdkVersion")
 .IsDependentOn("UpdateAndroidVersionToLatest")
 .IsDependentOn("UpdateIosVersionToLatest");
+
+Task("UpdateSdkVersion").Does(() => 
+{
+    Information($"Filling build config with new versions...");
+    var sdkVersion = EnvironmentVariable("NEW_SDK_VERSION");
+    if (sdkVersion != null) 
+    {
+        Information($"Verifying if {sdkVersion} is a valid semver version...");
+        ParseSemVer(sdkVersion);
+        UpdateConfigFileSdkVersion(sdkVersion);
+    }
+});
 
 Task("UpdateAndroidVersionToLatest")
 .Does(() => 
