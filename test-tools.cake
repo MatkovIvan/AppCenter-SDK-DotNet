@@ -309,7 +309,7 @@ Task("BuildAppsInAppCenter")
     var request = GetWebRequest(url, Token);
     var responseJson = GetResponseJson(request);
     Information("Successfully triggered build in App Center.");
-})
+});
 
 // Helper methods
 
