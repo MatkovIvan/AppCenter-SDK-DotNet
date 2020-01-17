@@ -158,7 +158,7 @@ Task("CreateIosArchive").IsDependentOn("IncreaseIosVersion").Does(()=>
 
 Task("CreateAndroidArchive").IsDependentOn("IncreaseAndroidVersion").Does(()=>
 {
-    AndroidPackage(CurrentApp.ProjectPath, true, c => c.Configuration = "Release");
+    BuildAndroidApk(CurrentApp.ProjectPath, true, c => c.Configuration = "Release");
     var projectLocation = CurrentApp.ProjectDirectory;
     var apks = GetFiles(projectLocation + "/bin/Release/*.apk");
     var unsignedApk = "";
