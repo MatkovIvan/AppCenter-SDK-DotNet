@@ -31,8 +31,8 @@ url="$(echo $resp | jq -r '.url')"
 if [ -z $url ] || [ "$url" == "" ] || [ "$url" == "null" ]; then
     echo "Cannot create a pull request"
     echo "Response:" $url
+    exit 1
 else
     echo "A pull request has been created at $url"
 fi
 
-exit 1
