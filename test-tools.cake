@@ -305,8 +305,10 @@ Task("BuildAppsInAppCenter")
 .Does(() => 
 {
     Information("Triggering build in App Center... ");
+    var appCenterToken = Argument<string>("AppCenterToken");
     var url = GetApiUrl(BaseUrl, CurrentApp.AppOwner, CurrentApp.AppId, "branches/master/builds");
-    var request = GetWebRequest(url, Token);
+    Information(Token.Length);
+    var request = GetWebRequest(url, appCenterToken);
     var responseJson = GetResponseJson(request);
     Information("Successfully triggered build in App Center.");
 });
