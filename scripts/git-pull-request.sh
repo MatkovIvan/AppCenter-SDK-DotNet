@@ -18,7 +18,11 @@ if [ -z "${GITHUB_REPO_OWNER}" ]; then
     GITHUB_REPO_OWNER="microsoft"
 fi
 GITHUB_REPO_NAME="appcenter-sdk-dotnet"
-REQUEST_URL_PULL="https://api.github.com/repos/$GITHUB_REPO_OWNER/$GITHUB_REPO_NAME/pulls?access_token=$github_access_token"
+#REQUEST_URL_PULL="https://api.github.com/repos/$GITHUB_REPO_OWNER/$GITHUB_REPO_NAME/pulls?access_token=$github_access_token"
+
+REQUEST_URL_PULL_TEMPLATE="https://api.github.com/repos/%s/%s/pulls?access_token=%s%s"
+REQUEST_URL_PULL="$(printf $REQUEST_URL_PULL_TEMPLATE $GITHUB_REPO_OWNER $GITHUB_REPO_NAME $github_access_token)"
+
 
 resp="$(curl -s -X POST $REQUEST_URL_PULL -d '{
       "title": "Start new '${SDK_NEW_VERSION}' version",
