@@ -15,8 +15,8 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-var AndroidSdkRepoName = "microsoft/appCenter-sdk-android";
-var AppleSdkRepoName = "microsoft/appCenter-sdk-apple";
+var AndroidSdkRepoName = "microsoft/appcenter-sdk-android";
+var AppleSdkRepoName = "microsoft/appcenter-sdk-apple";
 
 // Task TARGET for build
 var TARGET = Argument("target", Argument("t", ""));
