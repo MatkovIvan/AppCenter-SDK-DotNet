@@ -21,9 +21,9 @@ GITHUB_REPO_NAME="appcenter-sdk-dotnet"
 REQUEST_URL_PULL="https://api.github.com/repos/$GITHUB_REPO_OWNER/$GITHUB_REPO_NAME/pulls?access_token=$github_access_token"
 
 resp="$(curl -s -X POST $REQUEST_URL_PULL -d '{
-      "title": "Start new '${SDK_NEW_VERSION}' version",
-      "body": "Start new '${SDK_NEW_VERSION}' version",
-      "head": "release/'${SDK_NEW_VERSION}'",
+      "title": "Start new '${NEW_SDK_VERSION}' version",
+      "body": "Start new '${NEW_SDK_VERSION}' version",
+      "head": "release/'${NEW_SDK_VERSION}'",
       "base": "master"
     }')"
 url="$(echo $resp | jq -r '.url')"
