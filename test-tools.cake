@@ -301,6 +301,16 @@ Task("SendPushNotification")
     Information("Successfully sent push notification and received result:\n" + responseJson.ToString());
 });
 
+Task("BuildAppsInAppCenter")
+.Does(() => 
+{
+    Information("Triggering build in App Center... ");
+    var url = GetApiUrl(BaseUrl, CurrentApp.AppOwner, CurrentApp.AppId, "branches/master/builds");
+    var request = GetWebRequest(url, Token);
+    var responseJson = GetResponseJson(request);
+    Information("Successfully triggered build in App Center.");
+})
+
 // Helper methods
 
 string GetApiUrl(string baseUrl, string appOwner, string appId, string apiName)
