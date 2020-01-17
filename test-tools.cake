@@ -90,9 +90,9 @@ IList<ApplicationInfo> Applications = new List<ApplicationInfo>
     new ApplicationInfo(Environment.Prod, Platform.iOS, "appcenter", "xamarin-demo-ios", "Contoso.Forms.Demo.iOS.csproj", "ipa"),
     new ApplicationInfo(Environment.Prod, Platform.Android, "appcenter", "xamarin-demo-android", "Contoso.Forms.Demo.Droid.csproj", "apk"),
     new ApplicationInfo(Environment.Prod, Platform.UWP, "appcenter", "UWP-Forms-Puppet", "Contoso.Forms.Demo.UWP.csproj", ""),
-    new ApplicationInfo(Environment.Int, Platform.iOS, "app-center-sdk", "xamarin-puppet-ios", "Contoso.Forms.Puppet.iOS.csproj", "ipa"),
-    new ApplicationInfo(Environment.Int, Platform.Android, "app-center-sdk", "xamarin-puppet-android-03", "Contoso.Forms.Puppet.Droid.csproj", "apk"),
-    new ApplicationInfo(Environment.Int, Platform.UWP, "app-center-sdk", "xamarin-forms-puppet-uwp-2", "Contoso.Forms.Puppet.UWP.csproj", "")
+    new ApplicationInfo(Environment.Int, Platform.iOS, "appcenter-sdk", "xamarin-puppet-ios", "Contoso.Forms.Puppet.iOS.csproj", "ipa"),
+    new ApplicationInfo(Environment.Int, Platform.Android, "appcenter-sdk", "xamarin-puppet-android-03", "Contoso.Forms.Puppet.Droid.csproj", "apk"),
+    new ApplicationInfo(Environment.Int, Platform.UWP, "appcenter-sdk", "xamarin-forms-puppet-uwp-2", "Contoso.Forms.Puppet.UWP.csproj", "")
 };
 
 Setup(context =>
