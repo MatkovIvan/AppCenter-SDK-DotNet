@@ -172,13 +172,14 @@ Task("UpdateNativeVersionsToLatest")
 
 Task("UpdateSdkVersion").Does(() => 
 {
-    Information($"Filling build config with new versions...");
     var sdkVersion = EnvironmentVariable("NEW_SDK_VERSION");
     if (sdkVersion != null) 
     {
+        var oldVersion = VersionReader.SdkVersion;
         Information($"Verifying if {sdkVersion} is a valid semver version...");
         ParseSemVer(sdkVersion);
         UpdateConfigFileSdkVersion(sdkVersion);
+        Information($"Replaced sdk version {oldVersion} with {sdkVersion}.");
     }
 });
 
