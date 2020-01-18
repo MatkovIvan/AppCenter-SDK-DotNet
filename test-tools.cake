@@ -333,7 +333,7 @@ void BuildCurrentAppInAppCenter()
     var request = GetWebRequest(url, appCenterToken);
     var responseJson = GetResponseJson(request);
     Information("Successfully triggered build in App Center.");
-});
+}
 
 // Helper methods
 
