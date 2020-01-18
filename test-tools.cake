@@ -301,8 +301,31 @@ Task("SendPushNotification")
     Information("Successfully sent push notification and received result:\n" + responseJson.ToString());
 });
 
-Task("BuildAppsInAppCenter")
-.Does(() => 
+Task("BuildAppsInAppCenter").Does(() => 
+{
+    CurrentApp = (  from    app in Applications
+                    where   app.AppPlatform == Platform.iOS &&
+                            app.AppEnvironment == Environment.Prod
+                    select  app
+    ).Single();
+    BuildCurrentAppInAppCenter();
+    BuildCurrentAppInAppCenter();
+    CurrentApp = (  from    app in Applications
+                    where   app.AppPlatform == Platform.Android &&
+                            app.AppEnvironment == Environment.Prod
+                    select  app
+    ).Single();
+    BuildCurrentAppInAppCenter();
+    BuildCurrentAppInAppCenter();
+    CurrentApp = (  from    app in Applications
+                    where   app.AppPlatform == Platform.UWP &&
+                            app.AppEnvironment == Environment.Prod
+                    select  app
+    ).Single();
+    BuildCurrentAppInAppCenter();
+});
+
+void BuildCurrentAppInAppCenter()
 {
     Information("Triggering build in App Center... ");
     var appCenterToken = Argument<string>("AppCenterToken");
