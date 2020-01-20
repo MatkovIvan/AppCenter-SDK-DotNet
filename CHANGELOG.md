@@ -1,5 +1,27 @@
 # App Center SDK for .NET Change Log
 
+## Version 2.6.101
+
+### App Center
+
+* **[TEST]** "TEST" [LINK](https://github.com/MatkovIvan/AppCenter-SDK-DotNet)
+* **[Fix]** Allow whitespace characters between secrets like in versions before `2.6.0`.
+
+#### UWP
+
+* **[Feature]** Support ARM64 architecture.
+* **[Breaking change]** The minimum supported Window 10 version is now `10.0.16299.0`.
+
+#### WPF/WinForms
+
+* **[Breaking change]** The minimum supported version of .NET Framework is now `4.6.1`.
+
+#### UWP/WPF/WinForms
+
+* **[Dependency changes]** Update `SQLitePCLRaw.bundle_green` dependency to version `2.0.2` and remove dependency from `sqlite-net-pcl`.
+
+___
+
 ## Version 2.6.4
 
 ### App Center
@@ -11,6 +33,7 @@
 #### UWP/WPF/WinForms
 
 * **[Fix]** Fix sending remaining pending logs after sending 3 concurrent HTTP requests.
+* **[Fix]** The SDK was considering 201-299 status code as HTTP errors and is now fixed to accept all 2XX codes as successful.
 
 #### Android
 
